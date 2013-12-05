@@ -24,7 +24,7 @@ var SLIDE_CONFIG = {
   presenters: [{
     name: 'Yui Sakamoto',
     company: 'Programer<br>TyrellSystems co.',
-    gplus: 'http://plus.google.com/1234567890',
+    //gplus: 'http://plus.google.com/1234567890',
     twitter: '@yui_tang',
     www: 'http://gofurther.jp/',
     github: 'https://github.com/YuiSakamoto'
