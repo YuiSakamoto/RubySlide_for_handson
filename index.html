@@ -1,0 +1,359 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/Ruby_logo.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Rubyとは</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>オブジェクト指向スクリプト言語</li>
+        <li>Rubyの特徴
+          <ul>
+            <li>シンプルな文法</li>
+            <li>普通のオブジェクト指向機能(クラス、メソッドコールなど)</li>
+            <li>特殊なオブジェクト指向機能(Mixin、特異メソッドなど)</li>
+            <li>演算子オーバーロード</li>
+            <li>例外処理機能</li>
+            <li>イテレータとクロージャ</li>
+            <li>ガーベージコレクタ</li>
+            <li>ダックタイピング</li>
+            <li>ダイナミックローディング(アーキテクチャによる)</li>
+            <li>移植性が高い。多くのUNIX上で動くだけでなく、DOSやWindows、Mac、BeOSなどの上でも動く</li>
+          </ul>
+        </li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/Ruby_wiki.png)">
+      <hgroup>
+          <h2 class="black">細かいことはググりましょう</h2>
+      </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Ruby製ツール</h2>
+      <h3>最近何かとRuby製ツールが多い!!</h3>
+    </hgroup>
+    <article>
+      <p>例えば良く聞くものだと:</p>
+      <ul class="build">
+        <li>Chef/Puppet</li>
+        <li>Capistrano</li>
+        <li>Fluentd</li>
+        <li><h2>もっと言えば</h2></li>
+        <li>Github</li>
+        <li>Redmine</li>
+      </ul>
+      <p>PHP周りで使用しているものも、Ruby製ツールの焼き直しであるものが多い</p>
+      <ul class="build fade">
+        <li>Composer <- Bundler</li>
+        <li>CakePHP <- Rails</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+      <hgroup>
+          <h2>Ruby製ツールが多い理由</h2>
+          <h3>最近何かとRuby製ツールが多い!!</h3>
+      </hgroup>
+      <article>
+          <ul class="build">
+              <li>PHPより圧倒的にユーザー数は少ないものの</li>
+              <li>リテラシーの高い若いデベロッパーが集まっている</li>
+              <li>エンタープライズよりOSSの志向が強いので、</li>
+              <li>野良アプリがドンドン成長していく。</li>
+          </ul>
+          <p>更に</p>
+          <ul class="build">
+              <li>また、国産の言語であることから</li>
+              <li>国内にコミッターレベルの発信力を持った開発者が情報を拡散するため</li>
+              <li>質の高い情報が多い(PHP比)</li>
+          </ul>
+      </article>
+  </slide>
+
+  <slide>
+    <article>
+        <p style="text-align: center; padding-top: 200px; font-size: 64px; line-height: 100px">
+            最低限読み書きが出来ないと<br />
+            乗り遅れてしまう!!!!!!!!!
+        </p>
+    </article>
+  </slide>
+
+  <slide hidden>
+    Hidden slides are left out of the presentation.
+  </slide>
+
+  <slide>
+      <hgroup>
+          <h2>簡単なコーディングルール等</h2>
+          <h3></h3>
+      </hgroup>
+      <article>
+        <ul>
+            <li>インデントはソフトタブ2(No!ハードタブ！)</li>
+            <li>カッコは大半が省略出来る。また出来る限り省略する。</li>
+            <li>ブロックは基本的にdo...end</li>
+            <li>式の終わりは基本的に改行(No!セミコロン!)</li>
+            <li>メソッド内で明示的にリターンをしない場合には最終行の式の返り値がreturnされる</li>
+            <li>命名規則:クラスとモジュールはキャメルケース,メソッドと変数はスネークケース</li>
+            <li>返り値が真偽値のメソッドはメソッド名の最後に"?"を付ける</li>
+            <li>破壊的メソッドはメソッド名の最後に"!"を付ける</li>
+        </ul>
+        <ul class="build">
+        <h3>簡単ですね(・ω<)☆</h3>
+        </ul>
+      </article>
+  </slide>
+
+  <slide>
+      <hgroup>
+          <h2>簡単なコード例その1</h2>
+          <h3>クラスとメソッド</h3>
+      </hgroup>
+      <article>
+          <p>Hello, worldしましょう</p>
+      <pre class="prettyprint" data-lang="ruby">
+class Greeting
+  def hello name = "Ruby"
+    puts "Hello World, #{name}"
+  end
+end
+
+<b>
+    #クラスをインスタンス化して即実行
+    Greeting.new.hello("Beppu");
+
+    #インスタンス化してからじっくり実行
+    g = Greeting.new
+    g.hello("Sato")
+</b>
+        </pre>
+          <p>irbを使って実行</p>
+      </article>
+  </slide>
+
+  <slide>
+      <hgroup>
+          <h2>簡単なコード例その2</h2>
+          <h3>制御構文</h3>
+      </hgroup>
+      <article class="smaller">
+          <p>
+              if, while, forは当然存在。<br />phpでいうswitch~case文はcase~when~then文と等価の為、省略。
+          </p>
+      </article>
+      <article>
+          <p>unless, until, loop, 範囲オブジェクト</p>
+          <pre class="prettyprint" data-lang="ruby">
+# unless => ifの逆。falseだとブロック内を実行。elseはあるけどelseifはない。
+unless false
+  puts "false!!"
+end
+
+# until => whileの逆。条件がfalseの場合繰り返し実行。
+a = false
+i = 0
+until a
+  i += 1
+  puts i
+  a = true if i >= 100
+end
+          </pre>
+      </article>
+  </slide>
+
+  <slide>
+      <hgroup>
+          <h2>簡単なコード例その3</h2>
+          <h3>制御構文</h3>
+      </hgroup>
+      <article>
+          <p>unless, until, loop, 範囲オブジェクト</p>
+          <pre class="prettyprint" data-lang="ruby">
+# loop => 判定式無し。内部でbreakしないと永久ループ。
+loop
+  puts "Forever!!"
+end
+
+# 範囲オブジェクト => 数字も文字も以下の指定方法で範囲指定が可能。
+for c in 'a'..'z'
+  puts c
+end
+          </pre>
+      </article>
+  </slide>
+
+  <slide>
+      <hgroup>
+          <h2>簡単なコード例その4</h2>
+          <h3>クラスとメソッド</h3>
+      </hgroup>
+      <article>
+          <p>ブロック付きメソッド(yield)</p>
+      <pre class="prettyprint" data-lang="ruby">
+def bar
+  yield 10
+  yield 20
+  yield 30
+end
+
+bar do |v|
+  puts v + 5
+end
+      </pre>
+          <p>irbを使って実行</p>
+      </article>
+  </slide>
+
+  <slide>
+      <hgroup>
+          <h2>簡単なコード例その4</h2>
+          <h3>クラスとメソッド</h3>
+      </hgroup>
+      <article>
+          <p>ブロック付きメソッド(yield)~応用~</p>
+          <p>vagrantの設定ファイルVagrantfileより</p>
+      <pre class="prettyprint" data-lang="ruby">
+config.vm.provision :chef_solo do |chef|
+  chef.cookbooks_path = "cookbooks"
+  chef.run_list = "recipe[centos]"
+end
+      </pre>
+          <p>chefやpuppetにも同様の文法が多数</p>
+      </article>
+  </slide>
+
+  <slide>
+      <hgroup>
+          <h2>簡単なコード例その5</h2>
+          <h3>シンボル</h3>
+      </hgroup>
+      <article>
+          <p>
+              文字列のような文字列でない何か。
+          </p>
+      <pre class="prettyprint" data-lang="ruby">
+a = {:hoge => "hoge", :fuga => "fuga"}  #ハッシュ
+# a = {hoge:"hoge", fuga:"fuga"} と同じ意味
+
+a.each do |key, value|
+  puts value
+end
+      </pre>
+          <p>シンボルとは、出力をしない文字列のようなもの。高速。</p>
+          <p>内部的には整数として扱われる</p>
+      </article>
+  </slide>
+
+
+  <slide>
+  <hgroup>
+      <h2>簡単なコード例その6</h2>
+      <h3>配列を回す</h3>
+  </hgroup>
+  <article>
+      <p>chefのレシピを抜粋</p>
+      <pre class="prettyprint" data-lang="ruby">
+%w{php54 php54-cli php54-common}.each do |p|
+  package p do
+    action :install
+  end
+end
+
+#配列式の%記法 配列の中身が文字列リテラルのみの場合のみ
+#["php54", "php54-cli", "php54-common"] と同義
+      </pre>
+      <p>シンボルとは、出力をしない文字列のようなもの。高速。</p>
+      <p>内部的には整数として扱われる</p>
+      </article>
+  </slide>
+
+  <slide>
+      <article>
+          <p style="text-align: center; padding-top: 150px; font-size: 64px; line-height: 100px">
+              これなら俺もRuby書けそう!!!<br />
+              って思いませんか？＼(^o^)／<br />
+              <ul class="build">
+                <h3 style="text-align: center">書きましょう!!!!!</h2>
+              </ul>
+          </p>
+      </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <hgroup class="auto-fadein">
+        <div>
+            <div style="float: left;">
+                <h2>おすすめ書籍</h2>
+                <h3>パーフェクトRuby</h3>
+            </div>
+            <div style="float: left; padding-left: 70px;">
+                <img src="images/perfect-ruby-cover-s.jpg">
+            </div>
+        </div>
+    </hgroup>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
